@@ -1,0 +1,94 @@
+##################################
+# BASH EXCT
+#
+# LAST UPDATE: 2019-08-04-16:23
+# VERSION: 5.1.0
+# CREATOR: Nico Perez
+#################################
+echo "Enter Imput:"
+read imput
+sair=0
+while [ $imput = "1397" ];
+	do
+		echo "Shell Exct [VER 5.1.0] for Kali Linux"
+		echo "Type help to get help"
+		while [ $sair = 0 ];
+			do
+                                read comando
+                                if [ $comando = "help" ];
+                                        then
+                                                echo "Commands:"
+                                                echo ""
+                                                echo "Help - Get a list of all the commands of Shell Exct"
+                                                echo "Erase - Clear the screen"
+                                                echo "Cd - Create a directory/folder"
+                                                echo "Rd - Remove a directory/folder"
+                                                echo "Ed - Enter in a directory/folder"
+                                                echo "Bd - Back a directory"
+                                                echo "Infodirectory - See the current directory"
+                                                echo "Del - Delete an archive"
+                                                echo "Infouser - See your currente user"
+                                                echo "Infoapp -  See the code of an archive"
+                                                echo "Quit - Quit the program"
+                                        fi
+                                if [ $comando = "erase" ];
+                                        then
+                                                clear
+                                        fi
+                                if [ $comando = "cd" ];
+                                        then
+                                                echo "Type the name of the directory/folder you want to create"
+                                                read directory
+                                                mkdir $directory
+                                        fi
+                                if [ $comando = "rd" ];
+                                        then
+                                                echo "Type the name of the directory/folder you want to remove"
+                                                read directory
+                                                rmdir $directory
+                                        fi
+                                if [ $comando = "ed" ];
+                                        then
+                                                echo "Type the name of directory/folder you want to enter"
+                                                read directory
+                                                cd $directory
+                                        fi
+                                if [ $comando = "bd" ];
+                                        then
+                                                cd ..
+                                        fi
+                                if [ $comando = "infodirectory" ];
+                                        then
+						echo "Your current directory is:"
+                                                pwd
+                                        fi
+                                if [ $comando = "del" ];
+                                        then
+                                                echo "Type the name of the archive you want do delete(Without extension)"
+                                                read archive
+                                                echo "Type the extension of the archive(Without ".")"
+                                                read extension
+                                                rm $archive.$extension
+                                        fi
+                                if [ $comando = "infoapp" ];
+                                        then
+                                                echo "Type the name of the archive you want to see the code(Without extension)"
+                                                read archive
+						echo "Type the extension of the archice(Without ".")"
+						read extension
+                                                cat $archive.$extension
+                                        fi
+                                if [ $comando = "infouser" ];
+                                        then
+						echo "Your current user is:"
+                                                whoami
+                                        fi
+                                if [ $comando = "quit" ];
+                                        then
+                                                exit
+                                        fi
+	                done
+			exit
+	done
+	echo "Wrong Password!"
+	exit
